@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "703176626875",
+    "project_id": "gain-dev-mit",
+    "storage_bucket": "gain-dev-mit.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:703176626875:android:64fbb6764011ca52d28f9e",
+        "android_client_info": {
+          "package_name": "com.example.gain_version_1"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "703176626875-uv6fphss842n2qdee7ue5npu2u79lrvf.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAC2VSf0sX5iIgE0PH6NRqHfwY4Nq1VVzw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "703176626875-uv6fphss842n2qdee7ue5npu2u79lrvf.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
