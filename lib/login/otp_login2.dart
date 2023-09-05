@@ -8,9 +8,12 @@ class Login2 extends StatefulWidget {
 }
 
 class _Login2State extends State<Login2> {
+  bool isChecked = false;
   @override
   Widget build(BuildContext context) {
-    return Scaffold(backgroundColor: Colors.black,
+    return Scaffold(
+      resizeToAvoidBottomInset: false,
+      backgroundColor: Colors.black,
       body: SafeArea(
         child: Center(
           child: Column(
@@ -37,11 +40,12 @@ class _Login2State extends State<Login2> {
                 children: [
                   Container(margin: EdgeInsets.symmetric(vertical:0 ,horizontal:5 ),
                     decoration: BoxDecoration(
-                        color: Color(0xFF490973),
-                        border: Border.all(color:Color(0xFF490973) )
+                        color: Color(0xFF9F01F5),
+                        border: Border.all(color:Color(0xFF9F01F5) )
                     ),child: Text('gggggggggggggggggggggggggggggggggggggggggggggggggggggggggg'
                         'gggggggggggggggggggggggggggggggggggggggg',
-                      style: TextStyle(color:Color(0xFF490973),fontSize: 2 ),),),
+                      style: TextStyle(color:Color(0xFF9F01F5),fontSize: 2 ),
+                    ),),
                   Container(margin: EdgeInsets.symmetric(vertical:0 ,horizontal:5 ),
                     decoration: BoxDecoration(
                         color: Color(0xFF9F01F5),
@@ -60,7 +64,7 @@ class _Login2State extends State<Login2> {
                 ],
               ),
 
-              SizedBox(height: 75,),
+              SizedBox(height: 50,),
               Text(
                 'Verify your account',
                 textAlign: TextAlign.center,
@@ -137,30 +141,39 @@ class _Login2State extends State<Login2> {
 
                 ],
               ),
-              SizedBox(height: 300,),
-              Container(
-                width: 24,
-                height: 24,
-                padding: const EdgeInsets.all(2),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  children: [
-                    Container(
-                      width: 20,
-                      height: 20,
-                      decoration: ShapeDecoration(
-                        color: Colors.white,
-                        shape: RoundedRectangleBorder(
-                          side: BorderSide(width: 1, color: Color(0xFFF7F7F7)),
-                          borderRadius: BorderRadius.circular(3),
-                        ),
-                      ),
+              SizedBox(height: 310,),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 40),
+            child: Row(mainAxisAlignment: MainAxisAlignment.start,
+              children: [
+                Container(
+                  child: Theme(
+                    data: Theme.of(context).copyWith(
+                      unselectedWidgetColor: Colors.grey
                     ),
+                    child: Checkbox(
+                      value: isChecked,
+                      onChanged: (value){
+                        setState(() => isChecked = value!);
+                      },
+                      activeColor: Colors.grey,
+                      checkColor: Colors.white,
 
-                  ],
+                    ),
+                  ),
                 ),
-              ),
-              SizedBox(height: 20,),
+
+                Container(
+                  child: (Text('I have read and I agree to Gains \nTerms of service and Privacy Policy',style: TextStyle(color: Color(0xFFF7F7F7),
+                    fontSize: 14,
+                    fontFamily: 'Montserrat',
+                    fontWeight: FontWeight.w400,),))
+                )
+              ],
+            ),
+          ),
+
+              SizedBox(height: 10,),
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 25),
                 child: GestureDetector(onTap: () {Navigator.pushNamed(context, '/loginpage2');},
