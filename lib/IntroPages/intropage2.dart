@@ -1,39 +1,36 @@
 import 'package:flutter/material.dart';
-import 'package:pinput/pinput.dart';
+import 'package:flutter/services.dart';
+
+import 'intropage3.dart';
 // ignore_for_file: prefer_const_constructors
-class Login2 extends StatefulWidget {
-  const Login2({super.key});
+class IntroPage2 extends StatefulWidget {
+  const IntroPage2({super.key});
 
   @override
-  State<Login2> createState() => _Login2State();
+  State<IntroPage2> createState() => _IntroPage2State();
 }
 
-class _Login2State extends State<Login2> {
-  bool isChecked = false;
+class _IntroPage2State extends State<IntroPage2> with SingleTickerProviderStateMixin{
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    SystemChrome.setEnabledSystemUIMode(SystemUiMode.immersive);
+    Future.delayed(Duration(seconds: 2), () {
+      Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (_) => const IntroPage3()));
+    });
+  }
+  @override
+  void dispose() {
+    // TODO: implement dispose
+    SystemChrome.setEnabledSystemUIMode(SystemUiMode.manual,
+        overlays: SystemUiOverlay.values );
+    super.dispose();
+
+  }
   @override
   Widget build(BuildContext context) {
-    final defaultPinTheme = PinTheme(
-      width: 56,
-      height: 56,
-      textStyle: TextStyle(fontSize: 20, color: Colors.white, fontWeight: FontWeight.w600),
-      decoration: BoxDecoration(
-        border: Border.all(color: Color(0xFF8A0FBF)),
-        borderRadius: BorderRadius.circular(20),
-      ),
-    );
-
-    final focusedPinTheme = defaultPinTheme.copyDecorationWith(
-      border: Border.all(color: Color(0xFF8A0FBF)),
-      borderRadius: BorderRadius.circular(8),
-    );
-
-    final submittedPinTheme = defaultPinTheme.copyWith(
-      decoration: defaultPinTheme.decoration?.copyWith(
-        color: Color(0xFF080808),
-      ),
-    );
     return Scaffold(
-      resizeToAvoidBottomInset: false,
       backgroundColor: Colors.black,
       body: SafeArea(
         child: Center(
@@ -85,83 +82,40 @@ class _Login2State extends State<Login2> {
                 ],
               ),
 
-              SizedBox(height: 50,),
-              Text(
-                'Verify your account',
+
+              SizedBox(height: 218 ,),
+              Text('Maximize reward \npoint collection',
                 textAlign: TextAlign.center,
                 style: TextStyle(
                   color: Color(0xFFF7F7F7),
-                  fontSize: 24,
+                  fontSize: 32,
                   fontFamily: 'Montserrat',
-                  fontWeight: FontWeight.w600,
-                  height: 1.25,
-                  letterSpacing: -0.48,
-                ),),
-              SizedBox(height: 10,),
+                  fontWeight: FontWeight.w600,),),
+              SizedBox(height: 25,),
               Text(
-                'Enter the 4 digit OTP sent to your number',
+                'Grant  email read permissions to make \nyour GAIN-ing journey easier!',
                 textAlign: TextAlign.center,
                 style: TextStyle(
-                  color: Color(0xFFF6F6F6),
-                  fontSize: 14,
+                  color: Color(0xFFF7F7F7),
+                  fontSize: 16,
                   fontFamily: 'Montserrat',
-                  fontWeight: FontWeight.w500,
-                ),
-              ),
-              SizedBox(height: 20,),
-          Pinput(
-            defaultPinTheme: defaultPinTheme,
-            focusedPinTheme: focusedPinTheme,
-            submittedPinTheme: submittedPinTheme,
-            validator: (s) {
-              return s == '2222' ? null : 'OTP is incorrect';
-            },
-            pinputAutovalidateMode: PinputAutovalidateMode.onSubmit,
-            showCursor: true,
-            onCompleted: (pin) => print(pin),
-          ),
-              SizedBox(height: 310,),
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 40),
-            child: Row(mainAxisAlignment: MainAxisAlignment.start,
-              children: [
-                Container(
-                  child: Theme(
-                    data: Theme.of(context).copyWith(
-                      unselectedWidgetColor: Colors.grey
-                    ),
-                    child: Checkbox(
-                      value: isChecked,
-                      onChanged: (value){
-                        setState(() => isChecked = value!);
-                      },
-                      activeColor: Colors.grey,
-                      checkColor: Colors.white,
+                  fontWeight: FontWeight.w600,
+                  height: 1.38,
+                  letterSpacing: -0.32,
+                ),),
 
-                    ),
-                  ),
-                ),
-
-                Container(
-                  child: (Text('I have read and I agree to Gains \nTerms of service and Privacy Policy',style: TextStyle(color: Color(0xFFF7F7F7),
-                    fontSize: 14,
-                    fontFamily: 'Montserrat',
-                    fontWeight: FontWeight.w400,),))
-                )
-              ],
-            ),
-          ),
+              SizedBox(height: 170,),
 
               SizedBox(height: 10,),
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 25),
-                child: GestureDetector(onTap: () {Navigator.pushNamed(context, '/loading');},
+                child: GestureDetector(onTap: () {Navigator.pushNamed(context, '/introloading');},
                   child: Container(
                       padding: EdgeInsets.symmetric(horizontal: 16, vertical: 12),
                       decoration: BoxDecoration(color: Color(0xFF9F01F5),borderRadius: BorderRadius.circular(6)),
                       child: Center(
                           child: Text(
-                            'Verify OTP',
+                            'Grant Permission',
                             style: TextStyle(
                               color: Color(0xFFF7F7F7),
                               fontSize: 16,
@@ -178,8 +132,7 @@ class _Login2State extends State<Login2> {
           ),
         ),
       ),
+
     );
   }
 }
-
-
