@@ -43,6 +43,10 @@ dependencies:
   cupertino_icons: ^1.0.2
   firebase_auth: ^4.9.0
   firebase_core: ^2.15.1
+  pinput: ^3.0.1
+  lottie: ^2.6.0
+  flutter_credit_card: ^3.0.7
+  smooth_page_indicator: ^1.1.0
 
 
 
@@ -66,6 +70,7 @@ flutter_launcher_icons:
 
 
 
+
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
 
@@ -81,6 +86,9 @@ flutter:
   assets:
      - assets/dark_logo.png
      - assets/white_logo.png
+     - assets/Backgr.png
+     - assets/reward1.png
+     - assets/reward2.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware

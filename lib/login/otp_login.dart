@@ -216,14 +216,14 @@ class _LoginState extends State<Login> {
                 padding: const EdgeInsets.symmetric(horizontal: 25),
                 child: GestureDetector(
                   onTap: () async{
-                    await FirebaseAuth.instance.verifyPhoneNumber(
-                      phoneNumber: '${countrycode.text + phone}',
-                      verificationCompleted: (PhoneAuthCredential credential) {},
-                      verificationFailed: (FirebaseAuthException e) {},
-                      codeSent: (String verificationId, int? resendToken) {},
-                      codeAutoRetrievalTimeout: (String verificationId) {},
-                    );
-                    // Navigator.pushNamed(context, '/loginpage2');
+                    // await FirebaseAuth.instance.verifyPhoneNumber(
+                    //   phoneNumber: '${countrycode.text + phone}',
+                    //   verificationCompleted: (PhoneAuthCredential credential) {},
+                    //   verificationFailed: (FirebaseAuthException e) {},
+                    //   codeSent: (String verificationId, int? resendToken) {},
+                    //   codeAutoRetrievalTimeout: (String verificationId) {},
+                    // );
+                    Navigator.pushNamed(context, '/loginpage2');
                   },
                   child: Container(
                       padding:
